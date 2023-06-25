@@ -20,6 +20,7 @@ void CustomerPanel::runPanel() {
         switch (choice) {
             case 1:
                 buyProduct();
+                system("pause");
                 break;
             case 2:
                 cout << "Going back to the main control panel..." << endl;

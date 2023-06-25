@@ -64,16 +64,17 @@ void StockManager::showProductsUnsorted() {
 
     // 设置列宽
     const int columnWidth = 15;
-    // 输出表头
     cout << setw(columnWidth) << left << "id"
          << setw(columnWidth) << left << "name"
          << setw(columnWidth) << left << "price"
-         << setw(columnWidth) << left << "discount" << endl;
+         << setw(columnWidth) << left << "discount"
+         << setw(columnWidth + 10) << left << "PriceAfterDiscount" << endl;
     for (const auto &product: PRODUCT_LIST) {
         cout << setw(columnWidth) << left << product.getId()
              << setw(columnWidth) << left << product.getName()
              << setw(columnWidth) << left << product.getPrice()
-             << setw(columnWidth) << left << product.getDiscountPercentage() << endl;
+             << setw(columnWidth) << left << product.getDiscountPercentage()
+             << setw(columnWidth + 10) << left << product.getPriceAfterDiscount() << endl;
     }
 }
 
@@ -94,6 +95,9 @@ vector<Product> StockManager::sortProductsByPrice() {
 vector<Product> StockManager::sortProductsByID() {
     //merge sort
     int len = PRODUCT_LIST.size();
+    if (len == 1) {
+        return PRODUCT_LIST;
+    }
     vector<Product> T(len);
     mergeSort(PRODUCT_LIST, T, 0, len);
     return T;

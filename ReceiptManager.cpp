@@ -29,19 +29,21 @@ void ReceiptManager::addReceipt(Receipt receipt) {
 void ReceiptManager::ShowReceipt() {
     vector<Receipt> list = sortReceipt();
     // 设置列宽
-    const int columnWidth = 20;
+    const int columnWidth = 15;
+    //Sun Jun 25 10:48:25 2023
+    //ReceiptNumber                 Date                                              TotalAmount                   initial Pa
     // 输出表头
-    cout << setw(columnWidth) << left << "ReceiptNumber"
-         << setw(columnWidth + 15) << left << "Date"
-         << setw(columnWidth) << left << "TotalAmount"
-         << setw(columnWidth) << left << "initial Payment"
-         << setw(columnWidth) << left << "change" << endl;
     //输出数据
+    cout << setw(columnWidth) << left << "ReceiptNumber"
+         << setw(columnWidth) << left << "TotalAmount"
+         << setw(columnWidth + 5) << left << "initial Payment"
+         << setw(columnWidth) << left << "change"
+         << setw(columnWidth) << left << "Date" << endl;
     for (const auto &receipt: list) {
         cout << setw(columnWidth) << left << receipt.getReceiptNumber()
-             << setw(columnWidth + 15) << left << receipt.getDate()
              << setw(columnWidth) << left << receipt.getTotalAmount()
-             << setw(columnWidth) << left << receipt.getInitialPayment()
-             << setw(columnWidth) << left << receipt.getChange() << endl;
+             << setw(columnWidth + 5) << left << receipt.getInitialPayment()
+             << setw(columnWidth) << left << receipt.getChange()
+             << setw(columnWidth) << left << receipt.getDate();
     }
 }

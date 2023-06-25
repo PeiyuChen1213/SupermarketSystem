@@ -32,11 +32,13 @@ void SystemPanel::runPanel() {
                 case 1: {
                     AdminPanel adminPanel;
                     adminPanel.runPanel();
+                    system("pause");
                     break;
                 }
                 case 2: {
                     CustomerPanel customerPanel;
                     customerPanel.runPanel();
+                    system("pause");
                     break;
                 }
                 case 3:

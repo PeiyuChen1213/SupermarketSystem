@@ -37,27 +37,35 @@ void AdminPanel::runPanel() {
             switch (choice) {
                 case 1:
                     addProduct();
+                    system("pause");
                     break;
                 case 2:
                     searchProduct();
+                    system("pause");
                     break;
                 case 3:
                     editProduct();
+                    system("pause");
                     break;
                 case 4:
                     deleteProduct();
+                    system("pause");
                     break;
                 case 5:
                     showProductsUnsorted();
+                    system("pause");
                     break;
                 case 6:
                     showProductsByID();
+                    system("pause");
                     break;
                 case 7:
                     showProductsByPrice();
+                    system("pause");
                     break;
                 case 8:
                     showReceipts();
+                    system("pause");
                     break;
                 case 9:
                     cout << "Going back to the main control panel..." << endl;
@@ -72,13 +80,10 @@ void AdminPanel::runPanel() {
 }
 
 void AdminPanel::addProduct() {
-    int id;
     string name;
     double price, discountPercentage;
     cout << endl;
     cout << "Add Product" << endl;
-    cout << "Enter product ID:";
-    cin >> id;
     cin.ignore();
     cout << "Enter product name:";
     getline(cin, name);
@@ -168,13 +173,15 @@ void AdminPanel::showProductsByID() {
     cout << setw(columnWidth) << left << "id"
          << setw(columnWidth) << left << "name"
          << setw(columnWidth) << left << "price"
-         << setw(columnWidth) << left << "discount" << endl;
+         << setw(columnWidth) << left << "discount"
+         << setw(columnWidth) << left << "PriceAfterDiscount" << endl;
     for (const auto &item: list) {
 
         cout << setw(columnWidth) << left << item.getId()
              << setw(columnWidth) << left << item.getName()
              << setw(columnWidth) << left << item.getPrice()
-             << setw(columnWidth) << left << item.getDiscountPercentage() << endl;
+             << setw(columnWidth) << left << item.getDiscountPercentage()
+             << setw(columnWidth) << left << item.getPriceAfterDiscount() << endl;
     }
 }
 
@@ -188,12 +195,14 @@ void AdminPanel::showProductsByPrice() {
     cout << setw(columnWidth) << left << "id"
          << setw(columnWidth) << left << "name"
          << setw(columnWidth) << left << "price"
-         << setw(columnWidth) << left << "discount" << endl;
+         << setw(columnWidth) << left << "discount"
+         << setw(columnWidth) << left << "PriceAfterDiscount" << endl;
     for (const auto &item: list) {
         cout << setw(columnWidth) << left << item.getId()
              << setw(columnWidth) << left << item.getName()
              << setw(columnWidth) << left << item.getPrice()
-             << setw(columnWidth) << left << item.getDiscountPercentage() << endl;
+             << setw(columnWidth) << left << item.getDiscountPercentage()
+             << setw(columnWidth) << left << item.getPriceAfterDiscount() << endl;
     }
 }
 
